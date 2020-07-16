@@ -28,7 +28,7 @@ namespace _03_KomodoRepositoryPattern_repository
 
             public bool UpdateExistingContent(BadgesContent newContent)
             {
-                BadgesContent oldContent = newContent;
+                var oldContent = _contentDirectory.SingleOrDefault(x => newContent.BadgeID == x.BadgeID);
                 if (oldContent != null)
                 {
                     oldContent.BadgeID = newContent.BadgeID;
